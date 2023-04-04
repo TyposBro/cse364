@@ -2,6 +2,8 @@ package me.typosbro.moshimoshi;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +13,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class Rating {
     @Id
-    private Number id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private User user;
     private Movie movie;
     private Number rating;

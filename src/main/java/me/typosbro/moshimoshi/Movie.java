@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +15,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class Movie {
     @Id
-    private Number id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String title;
     private List<String> genre;
 
