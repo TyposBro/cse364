@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Builder;
-import lombok.Data;;
+import lombok.Data;
 
 @Data
 @Builder
