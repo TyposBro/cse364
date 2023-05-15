@@ -25,15 +25,20 @@ public class PersonServiceImplementation implements PersonService {
         return personRepository.findByFirstNameStartsWith(name);
     }
 
-    @Override
-    public List<Person> getAll() {
-        return personRepository.findAll();
-    }
+    // @Override
+    // public List<Person> getAll() {
+    // return personRepository.findAll();
+    // }
 
     @Override
     public String delete(String id) {
         personRepository.deleteById(id);
         return id;
+    }
+
+    @Override
+    public List<Person> getPersonByAge(Integer minAge, Integer maxAge) {
+        return personRepository.findPersonByAgeBetween(minAge, maxAge);
     }
 
 }
