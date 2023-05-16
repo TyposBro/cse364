@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,9 +26,20 @@ public class RecordController {
         return recordService.get();
     }
 
+    @GetMapping("/{id}")
+    public Record get(@PathVariable String id) {
+        return recordService.getById(id);
+    }
+
     @PostMapping
     public String save(@RequestBody Record record) {
         return recordService.save(record);
+    }
+
+    @PutMapping("/{id}")
+    public Record update(@PathVariable String id, @RequestBody Record record) {
+        return recordService.update(id, record);
+
     }
 
     @DeleteMapping("/{id}")

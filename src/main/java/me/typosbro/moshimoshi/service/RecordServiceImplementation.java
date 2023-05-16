@@ -41,5 +41,20 @@ public class RecordServiceImplementation implements RecordService {
         timestamps.removeIf(timestamp -> timestamp.getTimestampId().equals(timestampId));
         recordRepository.save(record);
         return "Deleted timestamp with id: " + timestampId + " from record with id: " + id + ".";
+    }
+
+    @Override
+    public Record update(String id, Record record) {
+        Record _record = recordRepository.findById(id).orElseThrow(() -> new RuntimeException("Record not found"));
+        _record.setTimestamp(record.getTimestamp());
+        _record.setDate(record.getDate());
+        _record.setUrl(record.getUrl());
+        return recordRepository.save(_record);
+
+    }
+
+    @Override
+    public Record getById(String id) {
+        return recordRepository.findById(id).orElseThrow(() -> new RuntimeException("Record not found"));
     };
 }
