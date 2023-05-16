@@ -1,5 +1,6 @@
 package me.typosbro.moshimoshi.collection;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -18,7 +19,8 @@ public class Record {
     @Id
     private String recordId;
     private List<Timestamp> timestamp;
-    // recording url
+    private Date date;
+    private String url;
 
     // TODO: Binary upload/download url
 }
