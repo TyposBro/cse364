@@ -25,5 +25,11 @@ public class RecordServiceImplementation implements RecordService {
     @Override
     public String save(Record record) {
         return recordRepository.save(record).getRecordId();
+    }
+
+    @Override
+    public String delete(String id) {
+        recordRepository.deleteById(id);
+        return id;
     };
 }

@@ -9,4 +9,6 @@ public interface RecordService {
     List<Record> getAll();
 
     String save(Record record);
+
+    String delete(String id);
 }
