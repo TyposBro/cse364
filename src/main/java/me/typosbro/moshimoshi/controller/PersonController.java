@@ -36,11 +36,6 @@ public class PersonController {
 
     }
 
-    // @GetMapping()
-    // public List<Person> getAll() {
-    // return personService.getAll();
-    // }
-
     @GetMapping("/age")
     public List<Person> getPersonByAge(@RequestParam("minAge") Integer minAge, @RequestParam("maxAge") Integer maxAge) {
         return personService.getPersonByAge(minAge, maxAge);
