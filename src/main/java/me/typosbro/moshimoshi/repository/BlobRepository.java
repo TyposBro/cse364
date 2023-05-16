@@ -9,6 +9,6 @@ import me.typosbro.moshimoshi.collection.Blob;
 @Repository
 public interface BlobRepository extends MongoRepository<Blob, String> {
 
-    String upload(MultipartFile file);
+    String save(MultipartFile file);
 
 }
