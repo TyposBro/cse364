@@ -20,5 +20,10 @@ public class RecordServiceImplementation implements RecordService {
     @Override
     public List<Record> getAll() {
         return recordRepository.findAll();
+    }
+
+    @Override
+    public String save(Record record) {
+        return recordRepository.save(record).getRecordId();
     };
 }
