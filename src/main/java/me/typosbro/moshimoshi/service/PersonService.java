@@ -15,11 +15,9 @@ public interface PersonService {
 
     String delete(String id);
 
-    // List<Person> getAll();
-
     List<Person> getPersonByAge(Integer minAge, Integer maxAge);
 
-    Page<Person> search(String name, Integer age, Integer minAge, Integer maxAge, String city, String hobbies,
+    Page<Person> search(String name, Integer age, Integer minAge, Integer maxAge, String hobbies,
             Pageable pageable);
 
 }
