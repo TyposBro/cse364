@@ -18,7 +18,7 @@ public class RecordServiceImplementation implements RecordService {
     MongoTemplate mongoTemplate;
 
     @Override
-    public List<Record> getAll() {
+    public List<Record> get() {
         return recordRepository.findAll();
     }
 

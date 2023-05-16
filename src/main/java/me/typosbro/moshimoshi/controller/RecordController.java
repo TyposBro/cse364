@@ -21,8 +21,8 @@ public class RecordController {
     RecordService recordService;
 
     @GetMapping
-    public List<Record> getAll() {
-        return recordService.getAll();
+    public List<Record> get() {
+        return recordService.get();
     }
 
     @PostMapping

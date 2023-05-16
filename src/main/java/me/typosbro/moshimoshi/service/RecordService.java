@@ -6,7 +6,7 @@ import me.typosbro.moshimoshi.collection.Record;
 
 public interface RecordService {
 
-    List<Record> getAll();
+    List<Record> get();
 
     String save(Record record);
 
