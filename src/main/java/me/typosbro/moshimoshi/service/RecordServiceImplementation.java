@@ -56,5 +56,21 @@ public class RecordServiceImplementation implements RecordService {
     @Override
     public Record getById(String id) {
         return recordRepository.findById(id).orElseThrow(() -> new RuntimeException("Record not found"));
+    }
+
+    @Override
+    public Record updateTimestamp(String id, String timestampId, Timestamp timestamp) {
+        Record record = recordRepository.findById(id).orElseThrow(() -> new RuntimeException("Record not found"));
+        List<Timestamp> timestamps = record.getTimestamp();
+        for (Timestamp _timestamp : timestamps) {
+            if (_timestamp.getTimestampId().equals(timestampId)) {
+                _timestamp.setTag(timestamp.getTimestampId());
+                _timestamp.setStart(timestamp.getStart());
+                _timestamp.setEnd(timestamp.getEnd());
+
+                return recordRepository.save(record);
+            }
+        }
+        return null;
     };
 }

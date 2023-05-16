@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import me.typosbro.moshimoshi.collection.Record;
+import me.typosbro.moshimoshi.collection.Timestamp;
 import me.typosbro.moshimoshi.service.RecordService;
 
 @RestController
@@ -39,6 +40,13 @@ public class RecordController {
     @PutMapping("/{id}")
     public Record update(@PathVariable String id, @RequestBody Record record) {
         return recordService.update(id, record);
+
+    }
+
+    @PutMapping("/{id}/{timestampId}")
+    public Record updateTimestamp(@PathVariable String id, @PathVariable String timestampId,
+            @RequestBody Timestamp timestamp) {
+        return recordService.updateTimestamp(id, timestampId, timestamp);
 
     }
 
