@@ -28,7 +28,7 @@ public class RecordController {
     }
 
     @GetMapping("/{id}")
-    public Record get(@PathVariable String id) {
+    public Record getById(@PathVariable String id) {
         return recordService.getById(id);
     }
 

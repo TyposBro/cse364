@@ -17,7 +17,7 @@ import lombok.Data;
 public class Person {
 
     @Id
-    private String personId;
+    private String id;
     private String firstName;
     private String lastName;
     private Integer age;

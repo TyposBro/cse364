@@ -28,7 +28,7 @@ public class PersonServiceImplementation implements PersonService {
     @Override
     public String save(Person person) {
 
-        return personRepository.save(person).getPersonId();
+        return personRepository.save(person).getId();
     }
 
     @Override
