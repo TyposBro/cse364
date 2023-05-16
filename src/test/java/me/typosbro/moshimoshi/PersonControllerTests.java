@@ -41,7 +41,7 @@ public class PersonControllerTests {
         List<String> hobbies1 = Arrays.asList("Gaming", "Discord");
         Person person1 = Person
                 .builder()
-                .personId("1")
+                .id("1")
                 .firstName("John")
                 .lastName("Doe")
                 .age(25)
@@ -51,7 +51,7 @@ public class PersonControllerTests {
         List<String> hobbies2 = Arrays.asList("Coding", "J-Pop");
         Person person2 = Person
                 .builder()
-                .personId("2")
+                .id("2")
                 .firstName("Alice")
                 .lastName("Partner")
                 .age(30)
