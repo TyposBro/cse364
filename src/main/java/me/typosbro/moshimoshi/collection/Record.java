@@ -21,6 +21,4 @@ public class Record {
     private List<Timestamp> timestamp;
     private Date date;
     private String url;
-
-    // TODO: Binary upload/download url
 }
