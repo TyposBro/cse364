@@ -11,4 +11,6 @@ public interface RecordService {
     String save(Record record);
 
     String delete(String id);
+
+    String deleteTimestamp(String id, String timestampId);
 }

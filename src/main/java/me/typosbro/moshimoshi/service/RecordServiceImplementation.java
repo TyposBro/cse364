@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import me.typosbro.moshimoshi.collection.Record;
+import me.typosbro.moshimoshi.collection.Timestamp;
 import me.typosbro.moshimoshi.repository.RecordRepository;
 
 @Service
@@ -31,5 +32,14 @@ public class RecordServiceImplementation implements RecordService {
     public String delete(String id) {
         recordRepository.deleteById(id);
         return id;
+    }
+
+    @Override
+    public String deleteTimestamp(String id, String timestampId) {
+        Record record = recordRepository.findById(id).orElseThrow(() -> new RuntimeException("Record not found"));
+        List<Timestamp> timestamps = record.getTimestamp();
+        timestamps.removeIf(timestamp -> timestamp.getTimestampId().equals(timestampId));
+        recordRepository.save(record);
+        return "Deleted timestamp with id: " + timestampId + " from record with id: " + id + ".";
     };
 }

@@ -35,4 +35,9 @@ public class RecordController {
         return recordService.delete(id);
     }
 
+    @DeleteMapping("/{id}/{timestampId}")
+    public String deleteTimestamp(@PathVariable String id, @PathVariable String timestampId) {
+        return recordService.deleteTimestamp(id, timestampId);
+    }
+
 }

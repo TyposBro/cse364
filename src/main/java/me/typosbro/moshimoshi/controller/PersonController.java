@@ -52,7 +52,6 @@ public class PersonController {
             @RequestParam(defaultValue = "10") Integer size) {
         Pageable pageable = PageRequest.of(page, size);
         return personService.search(name, age, minAge, maxAge, city, hobbies, pageable);
-
     }
 
     @DeleteMapping("/{id}")
