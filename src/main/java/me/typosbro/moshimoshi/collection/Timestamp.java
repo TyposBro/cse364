@@ -8,7 +8,7 @@ import nonapi.io.github.classgraph.json.Id;
 @Builder
 public class Timestamp {
     @Id
-    private String timestampId;
+    private String id;
     private String tag;
     private String start;
     private String end;

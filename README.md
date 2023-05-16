@@ -6,40 +6,22 @@
 
 # PART II
 
-#### POST
+#### Person API
 
-```
-curl -X POST http://localhost:8080/employees -H ‘Content-type:application/json’ -d '{"name": "Samwise Gamgee", "role": "gardener"}'
-```
+CRUD operations for `/person` api
 
-#### PUT
+#### Blob API
 
-```
-curl -X PUT http://localhost:8080/employees/3 -H ‘Content-type:application/json’ -d '{"name": "Samwise Gamgee", "role": "ring bearer"}'
-```
+Binary UPLOAD and DELETE operations for `/blob` api
+
+#### Record API
+
+CRUD operations for `/record` api
+
+## complete documentation on each api and required/optional params can be found [here](http://localhost:8080/swagger-ui)
 
 # PART III
 
-#### GET
-
-```
-curl -X GET http://localhost:8080/ratings/4
-```
-
-#### GET ERROR
-
-```
-curl -X GET http://localhost:8080/ratings/0
-```
-
-#### POST
-
-```
-curl -X POST http://localhost:8080/ratings/ -H ‘Content-type:application/json’ -d '{"user": "1234", "movie": "4321", "rating": 2, "timestamp": "1234"}'
-```
-
-#### PUT
-
-```
-curl -X PUT http://localhost:8080/ratings/ -H ‘Content-type:application/json’ -d '{"\_id":"ObjectId(1234)", "user": "1234", "movie": "4321", "rating": 2, "timestamp": "1234"}'
-```
+There are 10 test cases for `/record` and `/rerson` APIs,
+since blob api containts simple operations on binary, we thought it's not nececarry
+to implement Unit tests.

@@ -17,10 +17,8 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Record {
     @Id
-    private String recordId;
+    private String id;
     private List<Timestamp> timestamp;
     private Date date;
     private String url;
-
-    // TODO: Binary upload/download url
 }

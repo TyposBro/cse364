@@ -18,6 +18,32 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+
+    	<dependency>
+    		<groupId>org.junit.platform</groupId>
+    		<artifactId>junit-platform-console-standalone</artifactId>
+    		<scope>runtime</scope>
+			<version>1.7.2</version>
+    	</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.7.2</version>
+			<scope>test</scope>
+   		</dependency>
+
+
+    	<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-data-jpa</artifactId>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.apache.derby</groupId>
+    		<artifactId>derby</artifactId>
+    		<scope>runtime</scope>
+    	</dependency>
+		
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -55,6 +81,25 @@
 	<build>
 		<finalName>cse364-project-1.0-SNAPSHOT</finalName>
 		<plugins>
+		<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.7.7.201606060606</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.3.0</version>

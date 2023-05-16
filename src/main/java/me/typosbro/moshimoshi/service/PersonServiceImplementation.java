@@ -28,18 +28,13 @@ public class PersonServiceImplementation implements PersonService {
     @Override
     public String save(Person person) {
 
-        return personRepository.save(person).getPersonId();
+        return personRepository.save(person).getId();
     }
 
     @Override
     public List<Person> getPersonStartWith(String name) {
         return personRepository.findByFirstNameStartsWith(name);
     }
-
-    // @Override
-    // public List<Person> getAll() {
-    // return personRepository.findAll();
-    // }
 
     @Override
     public String delete(String id) {
@@ -53,7 +48,7 @@ public class PersonServiceImplementation implements PersonService {
     }
 
     @Override
-    public Page<Person> search(String name, Integer age, Integer minAge, Integer maxAge, String city, String hobbies,
+    public Page<Person> search(String name, Integer age, Integer minAge, Integer maxAge, String hobbies,
             Pageable pageable) {
 
         Query query = new Query().with(pageable);
@@ -67,9 +62,6 @@ public class PersonServiceImplementation implements PersonService {
             criterias.add(Criteria.where("age").gte(minAge).lte(maxAge));
         }
 
-        if (city != null && !city.isEmpty()) {
-            criterias.add(Criteria.where("addresses.city").regex(city, "i"));
-        }
         if (hobbies != null && !hobbies.isEmpty()) {
             List<String> hobbiesList = Arrays.asList(hobbies.split(","));
             criterias.add(Criteria.where("hobbies").in(hobbiesList));
