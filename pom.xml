@@ -81,25 +81,42 @@
 	<build>
 		<finalName>cse364-project-1.0-SNAPSHOT</finalName>
 		<plugins>
-		<plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.7.7.201606060606</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>prepare-agent</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>report</id>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>report</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.7</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<phase>pre-integration-test</phase>
+					</execution>
+					<execution>
+						<id>report</id>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<phase>prepare-package</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<propertyName>snapshot</propertyName>
+					<outputDirectory>${project.build.directory}/test-results/jacoco</outputDirectory>
+					<rules>
+						<rule>
+							<element>*</element>
+							<excludes>
+								<exclude>
+									<groupId>org.junit.platform</groupId>
+									<artifactId>*</artifactId>
+								</exclude>
+							</excludes>
+						</rule>
+					</rules>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.3.0</version>
