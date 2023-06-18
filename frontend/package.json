@@ -1,0 +1,33 @@
+{
+  "name": "moshimoshi",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^2.0.7",
+    "jotai": "^2.1.0",
+    "react": "^18.2.0",
+    "react-audio-voice-recorder": "^1.0.10",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-router": "^6.9.0",
+    "react-router-dom": "^6.9.0",
+    "react-select": "^5.7.1",
+    "styled-components": "^5.3.9",
+    "swiper": "^9.1.1",
+    "uuid": "^9.0.0",
+    "wavesurfer.js": "^6.6.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "vite": "^4.2.0"
+  }
+}
