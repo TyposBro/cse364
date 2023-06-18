@@ -1,0 +1,34 @@
+name: Java and React CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17
+
+      - name: Build Java app
+        run: mvn clean install
+
+      - name: Run Java reports
+        run: mvn jacoco:report
+
+      - name: Run Java package
+        run: mvn package
+        
+      - name: Build Java run build
+        run: java -jar target/cse364-project-1.0-SNAPSHOT.jar
