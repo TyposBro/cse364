@@ -36,7 +36,7 @@ public class BlobController {
     }
 
     @PostMapping
-    public String upload(@RequestParam("blob") MultipartFile file) throws IOException {
+    public String upload(@RequestBody("blob") MultipartFile file) throws IOException {
         return blobService.upload(file.getOriginalFilename(), file);
     }
 

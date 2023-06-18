@@ -31,24 +31,24 @@ public class PersonController {
     }
 
     @GetMapping
-    public List<Person> getPersonsStartWith(@RequestParam("name") String name) {
+    public List<Person> getPersonsStartWith(@RequestBody("name") String name) {
         return personService.getPersonStartWith(name);
 
     }
 
     @GetMapping("/age")
-    public List<Person> getPersonByAge(@RequestParam("minAge") Integer minAge, @RequestParam("maxAge") Integer maxAge) {
+    public List<Person> getPersonByAge(@RequestBody("minAge") Integer minAge, @RequestBody("maxAge") Integer maxAge) {
         return personService.getPersonByAge(minAge, maxAge);
     }
 
     @GetMapping("/search")
-    public Page<Person> searchPerson(@RequestParam(required = false) String name,
-            @RequestParam(required = false) Integer age,
-            @RequestParam(required = false) Integer minAge,
-            @RequestParam(required = false) Integer maxAge,
-            @RequestParam(required = false) String hobbies,
-            @RequestParam(defaultValue = "0") Integer page,
-            @RequestParam(defaultValue = "10") Integer size) {
+    public Page<Person> searchPerson(@RequestBody(required = false) String name,
+            @RequestBody(required = false) Integer age,
+            @RequestBody(required = false) Integer minAge,
+            @RequestBody(required = false) Integer maxAge,
+            @RequestBody(required = false) String hobbies,
+            @RequestBody(defaultValue = "0") Integer page,
+            @RequestBody(defaultValue = "10") Integer size) {
         Pageable pageable = PageRequest.of(page, size);
         return personService.search(name, age, minAge, maxAge, hobbies, pageable);
     }
